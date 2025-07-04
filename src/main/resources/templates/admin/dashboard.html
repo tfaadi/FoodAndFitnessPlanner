@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/admin_dashboard.css}">
+    <title>Admin Dashboard</title>
+</head>
+
+<body>
+<div class="container">
+    <h2>Welcome to Admin Dashboard</h2>
+
+    <h3>All Queries</h3>
+    <ul class="query-list">
+        <li th:each="q : ${queries}">
+            <span th:text="${q.queryId} + ' - ' + ${q.content}"></span>
+            <a class="link-button" th:href="@{'/admin/query/' + ${q.queryId} + '/replies'}">View Replies</a>
+            <a class="link-button" th:href="@{'/admin/query/' + ${q.queryId} + '/reply'}">Reply</a>
+
+            <form th:action="@{'/admin/delete-query/' + ${q.queryId}}" method="post" style="display:inline;">
+                <button type="submit" class="delete-button" onclick="return confirm('Are you sure you want to delete this query?')">Delete</button>
+            </form>
+        </li>
+    </ul>
+
+    <div class="nav-links">
+        <a href="/admin/queries">View Queries</a> |
+        <a href="/admin/view-users">Manage Users</a> |
+        <a href="/admin/logout">Logout</a>
+    </div>
+</div>
+</body>
+</html>

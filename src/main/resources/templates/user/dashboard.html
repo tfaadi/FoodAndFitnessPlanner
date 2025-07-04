@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/user_dashboard.css}">
+    <title>FitnessPal - Dashboard</title>
+</head>
+<body>
+<div class="container">
+    <h1>Welcome to Your Dashboard</h1>
+
+    <nav class="nav-links">
+        <a th:href="@{/user/record-meal}">Record Meal</a>
+        <a th:href="@{/user/record-workout}">Record Workout</a>
+        <a th:href="@{/user/set-goals}">Set Goals</a>
+        <a th:href="@{/user/progress}">View Progress</a>
+        <a th:href="@{/user/ask-query}">Ask a Query</a>
+        <a th:href="@{/user/view-queries}">View Queries</a>
+        <a th:href="@{/user/logout}">Logout</a>
+    </nav>
+
+    <section>
+        <h2>Your Meals</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Meal Type</th>
+                    <th>Food Items</th>
+                    <th>Added On</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="meal : ${meals}">
+                    <td th:text="${meal.mealType}">Meal Type</td>
+                    <td th:text="${meal.foodItems}">Food Items</td>
+                    <td th:text="${#temporals.format(meal.timestamp, 'dd MMM yyyy HH:mm')}">Timestamp</td>
+                    <td>
+                        <a th:href="@{'/user/editMeal/' + ${meal.id}}">Edit</a> |
+                        <a th:href="@{'/user/deleteMeal/' + ${meal.id}}">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Your Workouts</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Workout Type</th>
+                    <th>Duration (minutes)</th>
+                    <th>Added On</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="workout : ${workouts}">
+                    <td th:text="${workout.workoutType}">Workout Type</td>
+                    <td th:text="${workout.durationInMinutes}">Duration</td>
+                    <td th:text="${#temporals.format(workout.timestamp, 'dd MMM yyyy HH:mm')}">Timestamp</td>
+                    <td>
+                        <a th:href="@{'/user/editWorkout/' + ${workout.id}}">Edit</a> |
+                        <a th:href="@{'/user/deleteWorkout/' + ${workout.id}}">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</div>
+</body>
+</html>

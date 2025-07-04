@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/set_goals.css}">
+    <title>Set Your Goal</title>
+</head>
+
+<body>
+<div class="container">
+    <h2>Set Your Goal</h2>
+
+    <form th:action="@{/user/set-goals}" method="post" th:object="${goal}">
+        <label>Type:</label>
+        <input type="text" th:field="*{goalType}" required />
+
+        <label>Description:</label>
+        <input type="text" th:field="*{description}" required />
+
+        <label>Target Date:</label>
+        <input type="date" th:field="*{targetDate}" required />
+
+        <button type="submit">Save Goal</button>
+    </form>
+
+    <a class="back-link" th:href="@{/user/dashboard}">← Back to Dashboard</a>
+</div>
+</body>
+</html>

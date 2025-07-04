@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/view_queries.css}">
+    <title>View Queries</title>
+</head>
+
+<body>
+<div class="container">
+    <h2>Your Queries</h2>
+
+    <ul class="query-list">
+        <li th:each="q : ${queries}">
+            <div class="query-box">
+                <p th:text="${q.content}"></p>
+                <a th:href="@{'/user/query/' + ${q.queryId} + '/replies'}">View Replies</a>
+            </div>
+        </li>
+    </ul>
+
+    <a class="back-link" href="/user/dashboard">← Back to Dashboard</a>
+</div>
+</body>
+</html>

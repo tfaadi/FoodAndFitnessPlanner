@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/edit_forms.css}">
+    <title>Edit Meal</title>
+</head>
+<body>
+<div class="container">
+    <h2>Edit Meal</h2>
+    <form th:action="@{/user/updateMeal}" th:object="${meal}" method="post">
+        <input type="hidden" th:field="*{id}" />
+
+        <label>Meal Type:</label>
+        <input type="text" th:field="*{mealType}" required />
+
+        <label>Food Items:</label>
+        <textarea th:field="*{foodItems}" rows="4" required></textarea>
+
+        <button type="submit">Update Meal</button>
+    </form>
+
+    <a class="back-link" th:href="@{/user/dashboard}">← Back to Dashboard</a>
+</div>
+</body>
+</html>

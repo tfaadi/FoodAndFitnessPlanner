@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/admin_view_queries.css}">
+    <title>All User Queries</title>
+</head>
+
+<body>
+<div class="container">
+    <h2>All User Queries</h2>
+
+    <ul>
+        <li th:each="q : ${queries}">
+            <span th:text="${q.queryId} + ' - ' + ${q.content}"></span> |
+            <a th:href="@{'/admin/query/' + ${q.queryId} + '/replies'}">View Replies</a> |
+            <a th:href="@{'/admin/query/' + ${q.queryId} + '/reply'}">Reply</a>
+        </li>
+    </ul>
+
+    <div class="back-link">
+        <a href="/admin/dashboard">Back to Dashboard</a>
+    </div>
+</div>
+</body>
+</html>

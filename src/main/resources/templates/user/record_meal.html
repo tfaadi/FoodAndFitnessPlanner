@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/record_meal.css}">
+    <title>Record a Meal</title>
+</head>
+
+<body>
+<div class="container">
+    <h2>Record a Meal</h2>
+
+    <form th:action="@{/user/record-meal}" method="post" th:object="${meal}">
+        <label>Meal Type:</label>
+        <select th:field="*{mealType}" required>
+            <option value="">-- Select --</option>
+            <option value="Breakfast">Breakfast</option>
+            <option value="Lunch">Lunch</option>
+            <option value="Dinner">Dinner</option>
+            <option value="Snack">Snack</option>
+        </select>
+
+        <label>Food Items:</label>
+        <textarea th:field="*{foodItems}" rows="4" required></textarea>
+
+        <button type="submit">Save Meal</button>
+    </form>
+
+    <a class="back-link" th:href="@{/user/dashboard}">← Back to Dashboard</a>
+</div>
+</body>
+</html>

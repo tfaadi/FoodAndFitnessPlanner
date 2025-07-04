@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
+    <title>Login - FitnessPal</title>
+</head>
+<body>
+<h1>Welcome to FitnessPal</h1>
+
+<form th:action="@{/login}" method="post" th:object="${loginRequest}">
+    <label>Username:</label>
+    <input type="text" th:field="*{username}" required />
+
+    <label>Password:</label>
+    <input type="password" th:field="*{password}" required />
+
+    <label>Role:</label>
+    <select th:field="*{role}">
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+    </select>
+
+    <button type="submit">Login</button>
+
+    <p th:if="${error}" th:text="${error}" class="error-message"></p>
+</form>
+
+<p>Not already a user? <a th:href="@{/register}">Register</a></p>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/view_replies.css}">
+    <title>Replies</title>
+</head>
+
+<body>
+<div class="container">
+    <h2>Replies to Your Query</h2>
+
+    <ul class="reply-list">
+        <li th:each="reply : ${replies}">
+            <div class="reply-box">
+                <p th:text="${reply.replyText}"></p>
+                <span th:text="'— by Admin ID: ' + ${reply.admin.id}"></span>
+            </div>
+        </li>
+    </ul>
+
+    <a class="back-link" href="/user/dashboard">← Back to Dashboard</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5fcf6;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+}
+
+h2, h3 {
+    color: #2e7d32;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.query-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.query-list li {
+    background-color: #e8f5e9;
+    border: 1px solid #c8e6c9;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.query-list span {
+    flex: 1;
+    margin-right: 10px;
+    font-size: 15px;
+    color: #2e7d32;
+}
+
+.link-button {
+    padding: 6px 12px;
+    margin: 0 5px;
+    background-color: #66bb6a;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.link-button:hover {
+    background-color: #43a047;
+}
+
+.delete-button {
+    padding: 6px 12px;
+    background-color: #e53935;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #c62828;
+}
+
+.nav-links {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #2e7d32;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}

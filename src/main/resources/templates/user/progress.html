@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/progress.css}">
+    <title>Your Goals</title>
+</head>
+<body>
+
+<div class="container">
+    <h2>Pending Goals</h2>
+    <ul class="goal-list">
+        <li th:each="goal : ${pendingGoals}">
+            <form th:action="@{'/user/toggle-goal/' + ${goal.id}}" method="post" style="display:inline;">
+                <input type="checkbox" onchange="this.form.submit()">
+            </form>
+            <span th:text="${goal.goalType} + ' - ' + ${goal.description} + ' (Target: ' + ${goal.targetDate} + ')'"></span>
+            <a th:href="@{'/user/editGoal/' + ${goal.id}}">Edit</a> |
+            <a th:href="@{'/user/deleteGoal/' + ${goal.id}}">Delete</a>
+        </li>
+    </ul>
+
+    <h2>Completed Goals</h2>
+    <ul class="goal-list">
+        <li th:each="goal : ${completedGoals}">
+            <form th:action="@{'/user/toggle-goal/' + ${goal.id}}" method="post" style="display:inline;">
+                <input type="checkbox" checked onchange="this.form.submit()">
+            </form>
+            <span th:text="${goal.goalType} + ' - ' + ${goal.description} + ' (Completed)'"></span>
+            <a th:href="@{'/user/editGoal/' + ${goal.id}}">Edit</a> |
+            <a th:href="@{'/user/deleteGoal/' + ${goal.id}}">Delete</a>
+        </li>
+    </ul>
+
+    <h2>Your Workout Calendar for <span th:text="${year} + '-' + ${month}"></span></h2>
+
+    <div class="calendar-grid">
+        <div th:each="i : ${#numbers.sequence(1, 31)}"
+             th:if="${i <= T(java.time.YearMonth).of(year, month).lengthOfMonth()}"
+             th:class="'day-box ' + (${workoutDays.contains(i)} ? 'checked' : 'unchecked')">
+            <span th:text="'Day ' + ${i}"></span><br/>
+            <span th:text="${workoutDays.contains(i) ? '✔️' : '❌'}"></span>
+        </div>
+    </div>
+
+    <a class="back-link" href="/user/dashboard">← Back to Dashboard</a>
+</div>
+
+</body>
+</html>

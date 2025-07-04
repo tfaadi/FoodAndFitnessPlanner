@@ -1,0 +1,58 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f9fe;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+h2 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+}
+
+.reply-list {
+    list-style: none;
+    padding: 0;
+}
+
+.reply-box {
+    background-color: #ecf4fc;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    text-align: left;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.reply-box p {
+    margin: 0 0 5px 0;
+    font-size: 15px;
+    color: #34495e;
+}
+
+.reply-box span {
+    font-size: 13px;
+    color: #777;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 25px;
+    text-decoration: none;
+    color: #3498db;
+    font-weight: 500;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}

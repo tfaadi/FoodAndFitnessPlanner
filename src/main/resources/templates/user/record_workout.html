@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/record_workout.css}">
+    <title>Record a Workout</title>
+</head>
+
+<body>
+<div class="container">
+    <h2>Record a Workout</h2>
+
+    <form th:action="@{/user/record-workout}" method="post" th:object="${workout}">
+        <label>Workout Type:</label>
+        <input type="text" th:field="*{workoutType}" required />
+
+        <label>Duration (minutes):</label>
+        <input type="number" th:field="*{durationInMinutes}" required />
+
+        <button type="submit">Save Workout</button>
+    </form>
+
+    <a class="back-link" th:href="@{/user/dashboard}">← Back to Dashboard</a>
+</div>
+</body>
+</html>

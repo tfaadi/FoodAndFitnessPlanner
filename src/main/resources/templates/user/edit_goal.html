@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/edit_goal.css}">
+    <title>Edit Goal</title>
+</head>
+<body>
+
+<div class="container">
+    <h2>Edit Your Goal</h2>
+
+    <form th:action="@{/user/updateGoal}" method="post" th:object="${goal}">
+        <input type="hidden" th:field="*{id}"/>
+
+        <label>Type:</label>
+        <input type="text" th:field="*{goalType}" required/>
+
+        <label>Description:</label>
+        <input type="text" th:field="*{description}" required/>
+
+        <label>Target Date:</label>
+        <input type="date" th:field="*{targetDate}" required/>
+
+        <button type="submit">Update</button>
+    </form>
+
+    <a class="back-link" href="/user/progress">← Back to Progress</a>
+</div>
+
+</body>
+</html>
